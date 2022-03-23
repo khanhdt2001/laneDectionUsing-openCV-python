@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread("test_image.jpg")
+img = cv2.imread("./assets/1.png")
 gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 edges = cv2.Canny(gray, 75, 100)
 

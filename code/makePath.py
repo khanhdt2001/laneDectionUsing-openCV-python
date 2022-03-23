@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 def make_coordinates(image, line_parameters):
     # if line_parameters is not None:

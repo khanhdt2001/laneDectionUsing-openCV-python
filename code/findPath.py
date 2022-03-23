@@ -26,9 +26,11 @@ def average_slope_intercept(image, lines):
         left_fit_average = np.average(left_fit, axis=0)
         global_left_fit_average = left_fit_average 
         # trong trường hợp nếu ko tìm đc thì sẽ lấy giá trị cũ để đưa vào 
-
-    right_fit_average = np.average(right_fit, axis=0)
-    global_right_fit_average = right_fit_average
+    if (len(right_fit) == 0):
+        right_fit_average = global_right_fit_average
+    else: 
+        right_fit_average = np.average(right_fit, axis=0)
+        global_right_fit_average = right_fit_average
     left_line = make_coordinates(image, left_fit_average)
     right_line = make_coordinates(image, right_fit_average)
     return np.array([left_line, right_line])

@@ -7,13 +7,13 @@ from makeLine import *
 from makePath import *
 from findPath import *
 
-cap = cv2.VideoCapture("./assets/test2.mp4")
+cap = cv2.VideoCapture("./assets/curveVideo.mp4")
 
 while(cap.isOpened()):
     _, frame = cap.read()
     canny_image = canny(frame)
     cropped_image = region_of_interest(canny_image)
-    lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineLength=10, maxLineGap=5)
+    lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineLength=20, maxLineGap=255)
     averaged_lines = average_slope_intercept(frame, lines)
     line_image = display_line(frame, averaged_lines)
     combine_image= cv2.addWeighted(frame, 0.8, line_image, 1, 1)
