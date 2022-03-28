@@ -1,6 +1,8 @@
+from warnings import catch_warnings
 import cv2
 import numpy as np
 from makeCoordinates import *
+import math
 global_left_fit_average = []
 global_right_fit_average = []
 
@@ -18,10 +20,19 @@ def average_slope_intercept(image, lines):
             parameters = np.polyfit((x1, x2), (y1,y2), 1)
             slope = parameters[0]
             intercept = parameters[1]
+            # print(parameters)
+            # if (math.degrees(math.atan(slope)) > 70.0 or math.degrees(math.atan(slope)) < -43.0):
+            #     print("loi",parameters)
+            #     continue
+            
             if (slope < 0):
+                print("trai" , slope)
                 left_fit.append((slope, intercept))
-            else:
+            elif (slope > 1 and slope < 2.8):
+                print("phai" ,slope)
                 right_fit.append((slope, intercept))
+            
+            
     if (len(left_fit) == 0):
         left_fit_average = global_left_fit_average
     else:

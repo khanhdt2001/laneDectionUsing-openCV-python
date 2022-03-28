@@ -1,1 +1,1 @@
-cv2.imshow("line", edges)
+2.8
