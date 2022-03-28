@@ -26,10 +26,10 @@ def average_slope_intercept(image, lines):
             #     continue
             
             if (slope < 0):
-                print("trai" , slope)
+                #print("trai" , slope)
                 left_fit.append((slope, intercept))
             elif (slope > 1 and slope < 2.8):
-                print("phai" ,slope)
+                #print("phai" ,slope)
                 right_fit.append((slope, intercept))
             
             
