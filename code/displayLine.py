@@ -7,5 +7,5 @@ def display_line(image, lines):
     if lines is not None:
         for line in lines:
             x1, y1, x2, y2 = line.reshape(4)
-            cv2.line(line_image, (x1, y1), (x2, y2), (255, 155, 0), 10)
+            cv2.line(line_image, (x1, y1), (x2, y2), (255, 155, 0), 15)
     return line_image

@@ -1,8 +1,10 @@
-import cv2
 import numpy as np
-from makePath import *
+from makeCoordinates import *
+import math
 global_left_fit_average = []
 global_right_fit_average = []
+
+''' tìm ra đường đi trung bình '''
 
 def average_slope_intercept(image, lines):
     left_fit = []
@@ -16,10 +18,13 @@ def average_slope_intercept(image, lines):
             parameters = np.polyfit((x1, x2), (y1,y2), 1)
             slope = parameters[0]
             intercept = parameters[1]
-            if (slope < 0):
+            if (slope < -0.5 ):
+                print(slope)
                 left_fit.append((slope, intercept))
-            else:
+            elif (slope > 1 and slope < 2.8):
                 right_fit.append((slope, intercept))
+            
+            
     if (len(left_fit) == 0):
         left_fit_average = global_left_fit_average
     else:

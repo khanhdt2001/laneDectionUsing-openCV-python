@@ -1,1 +1,1 @@
-2.8
+cv2.imshow("canny", line_image)
