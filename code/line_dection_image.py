@@ -2,8 +2,9 @@ import cv2
 import numpy as np
 
 img = cv2.imread("./assets/1.png")
+cv2.imshow("origin picture", img)
 gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-edges = cv2.Canny(gray, 75, 100)
+edges = cv2.Canny(gray, 0, 200)
 
 lines = cv2.HoughLinesP(edges, 1, np.pi/180, 30, maxLineGap= 250)
 
