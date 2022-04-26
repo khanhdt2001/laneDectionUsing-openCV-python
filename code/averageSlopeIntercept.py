@@ -1,7 +1,6 @@
 import numpy as np
 from makeCoordinates import *
-import time
-import math
+
 global_left_fit_average = []
 global_right_fit_average = []
 global_counter = 0 
@@ -9,14 +8,11 @@ global_counter = 0
 
 def average_slope_intercept(image, lines):
     left_fit = []
-    # left_weigth = []
-    right_fit = []
-    # right_weight = []
+    right_fit = []  
     global global_left_fit_average
     global global_right_fit_average
     global global_counter
-    # global global_left_weight
-    # global global_right_weight
+
     
     if global_counter < 3 :
         if lines is not None:
@@ -24,8 +20,9 @@ def average_slope_intercept(image, lines):
                 x1, y1, x2, y2 = line.reshape(4)
                 if x2 != x1 :
 
-                    slope = (y2-y1)/ (x2-x1)
+                    slope = (y2-y1) / (x2-x1)
                     intercept = y1 - slope* x1
+                    
                     # length = np.sqrt((y2-y1)**2 + (x2-x1)**2)
                     # parameters = np.polyfit((x1, x2), (y1,y2), 1)
                     # print('polyfit' ,parameters)
@@ -34,11 +31,11 @@ def average_slope_intercept(image, lines):
                     if (slope < -0.5 ):
                         left_fit.append((slope, intercept))
                         # left_weigth.append((length))
-                    elif (slope > 1 and slope < 2.8):
+                    # elif (slope > 1 and slope < 2.8):
+                    else:
                         right_fit.append((slope, intercept))
                         # right_weight.append((length))
-                    else : 
-                        print(slope)
+                
     elif global_counter > 5:
         global_counter = 0
     global_counter += 1

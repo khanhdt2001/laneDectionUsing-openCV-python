@@ -1,5 +1,5 @@
 import numpy as np
-''' y = slope*x + intercept'''
+''' y = slope * x + intercept'''
 def make_coordinates(image, line_parameters):
     # if line_parameters is not None:
         slope, intercept = line_parameters

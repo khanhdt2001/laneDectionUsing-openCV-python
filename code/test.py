@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-video = cv2.VideoCapture("./assets/curveVideo.mp4")
+video = cv2.VideoCapture("./assets/test2.mp4")
 
 while True:
     ret, frame = video.read()
@@ -18,8 +18,8 @@ while True:
     if not ret:
         video = cv2.VideoCapture("roadTrip1.mp4")
         continue
-    plt.imshow(edges)
-    plt.show()
+    # plt.imshow(edges)
+    # plt.show()
     # cv2.imshow("frame", frame)
     cv2.imshow("line", edges)
     key = cv2.waitKey(25)
